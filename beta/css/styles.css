@@ -1,0 +1,552 @@
+@import url(normalize.css);
+/*-------------------------
+	Variables
+--------------------------*/
+/*-------------------------
+	Mixins
+--------------------------*/
+/*-------------------------
+	General Styles
+--------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0; }
+
+html, body, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  height: 100%; }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none; }
+
+ul {
+  list-style: none; }
+
+body {
+  color: #333333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  min-width: 100%; }
+
+a {
+  text-decoration: none; }
+
+.table {
+  display: table; }
+
+.row {
+  display: table-row; }
+
+.cell {
+  display: table-cell; }
+
+/* Mozilla based browsers */
+::-moz-selection {
+  background-color: #333333;
+  color: #FFF; }
+
+/* Works in Safari */
+::selection {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #FFF; }
+
+.programming-background {
+  background: #77ce9a; }
+
+.mechanical-background {
+  background: #d293cd; }
+
+.design-background {
+  background: #6ac7de; }
+
+.title-text {
+  font-weight: bold;
+  font-size: 20px;
+  color: white; }
+
+.body-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: white; }
+
+/*-------------------------
+	Main Styles
+--------------------------*/
+#main-table {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  min-height: 100% !important; }
+
+#main-cell-logo {
+  vertical-align: middle;
+  text-align: center;
+  padding: 130px 50px 50px 50px; }
+
+#logo {
+  background: url("../res/vector/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 154px;
+  height: 120px;
+  display: inline-block; }
+
+#main-row-chevron {
+  height: 80px; }
+
+#chevron {
+  background: url("../res/vector/chevron.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 50px;
+  height: 26px;
+  display: inline-block; }
+
+#main-row-footer {
+  height: 80px; }
+
+#main-three-sections {
+  white-space: nowrap; }
+  #main-three-sections li {
+    display: inline-block;
+    width: 33.33%;
+    width: calc(100%/3);
+    min-width: 300px !important;
+    padding-right: 2px; }
+    #main-three-sections li:last-child {
+      padding-right: 0; }
+
+#header-design-container {
+  width: 35px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden; }
+
+#header-design-icon {
+  position: absolute;
+  left: 5px;
+  top: 26px;
+  background: url("../res/vector/header_design.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 23px;
+  height: 28px; }
+
+#header-design-addition-arc {
+  position: absolute;
+  left: 0;
+  bottom: 26px;
+  background: url("../res/vector/paint_arc.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 14px;
+  height: 28px; }
+
+#header-design-addition-mask {
+  position: absolute;
+  left: -15px;
+  bottom: 35px;
+  background: #333333;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg); }
+
+#header-mechanical-container {
+  width: 30px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative; }
+
+#header-mechanical-icon {
+  position: absolute;
+  left: 0;
+  top: 25px;
+  background: url("../res/vector/header_mechanical.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 30px;
+  height: 30px; }
+
+#header-mechanical-addition-square {
+  position: absolute;
+  left: 12px;
+  top: 50px;
+  background: white;
+  width: 10px;
+  height: 10px; }
+
+#header-mechanical-addition-line {
+  position: absolute;
+  left: 16px;
+  top: 40px;
+  background: white;
+  width: 2px;
+  height: 10px; }
+
+#header-programming-container {
+  width: 30px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative; }
+
+#header-programming-icon {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  background: url("../res/vector/header_programming.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 18px;
+  height: 32px; }
+
+#header-programming-addition-text {
+  position: absolute;
+  left: 5px;
+  top: -50px;
+  width: 6px;
+  height: 388px;
+  background: url("../res/vector/binary.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px; }
+
+#header-programming-addition-scroller {
+  position: absolute;
+  left: 1px;
+  top: 28px;
+  width: 16px;
+  height: 22px;
+  overflow: hidden; }
+
+.title {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-right: 10px; }
+
+.title-box {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  line-height: 77px;
+  /* correcting for the 5px bar below */ }
+
+.bottom-stripe {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  bottom: 0; }
+
+.grey-box {
+  position: relative;
+  background: #333333;
+  height: 80px; }
+
+/*-------------------------
+	About Styles
+--------------------------*/
+#about-backing {
+  position: relative;
+  min-width: 1000px !important;
+  width: 100%;
+  background: #333333;
+  height: auto;
+  padding: 50px; }
+
+#me {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  vertical-align: top; }
+
+#about-text-block {
+  display: inline-block;
+  margin-left: 10px;
+  width: 300px;
+  height: 150px;
+  vertical-align: top;
+  text-align: left;
+  position: relative; }
+
+#about-left-block {
+  float: left;
+  height: auto; }
+
+#about-right-block {
+  float: right;
+  height: auto; }
+  #about-right-block li {
+    margin-bottom: 5px; }
+    #about-right-block li:last-child {
+      margin-bottom: 0; }
+
+#about-body {
+  margin-top: 20px; }
+
+#about-copyright {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.3; }
+
+#about-rectangles {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0; }
+  #about-rectangles ul {
+    white-space: nowrap; }
+  #about-rectangles li {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 25px;
+    margin-right: 20px;
+    height: 5px; }
+    #about-rectangles li:last-child {
+      margin-right: 0; }
+
+.black-button {
+  background: rgba(0, 0, 0, 0.3);
+  width: 200px;
+  padding: 20px 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: white; }
+  .black-button:hover {
+    background: black; }
+
+/*-------------------------
+	Content Styles
+--------------------------*/
+#content-backing {
+  position: relative;
+  margin-top: 2px;
+  width: 100%;
+  height: auto; }
+
+#content-rows li {
+  padding-bottom: 1px; }
+  #content-rows li:last-child {
+    padding-bottom: 10px; }
+
+.work-row ul {
+  white-space: nowrap; }
+.work-row li {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 200px;
+  width: 33.33%;
+  width: calc(100%/3);
+  padding-bottom: 2px;
+  padding-right: 2px; }
+  .work-row li:last-child {
+    padding-right: 0; }
+
+.work-piece {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .work-piece:hover {
+    background: none; }
+
+.work-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  opacity: 0.75; }
+  .work-image:hover {
+    opacity: 1.0; }
+
+#work-programming-1 {
+  background-image: url("../res/raster/programming1.png"); }
+
+#work-programming-2 {
+  background-image: url("../res/raster/programming2.png"); }
+
+#work-programming-3 {
+  background-image: url("../res/raster/programming3.png"); }
+
+#work-mechanical-1 {
+  background-image: url("../res/raster/mechanical1.png"); }
+
+#work-mechanical-2 {
+  background-image: url("../res/raster/mechanical2.png"); }
+
+#work-mechanical-3 {
+  background-image: url("../res/raster/mechanical3.png"); }
+
+#work-design-1 {
+  background-image: url("../res/raster/design1.png"); }
+
+#work-design-2 {
+  background-image: url("../res/raster/design2.png"); }
+
+#work-design-3 {
+  background-image: url("../res/raster/design3.png"); }
+
+.work-preview-box {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.work-title {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  opacity: 0;
+  background: none; }
+  .work-title:hover {
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1.0; }
+
+#work-display-backing {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: translate3d(0, 0, 0);
+  width: 0;
+  height: 0;
+  min-width: 1000px; }
+
+/* modal page styles */
+.modal-title-stripe {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  min-width: 600px;
+  /* buffer for some title space */ }
+
+.modal-close-button {
+  position: relative;
+  margin-top: 15px;
+  width: 30px;
+  height: 30px;
+  float: right;
+  background: url("../res/vector/close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px; }
+
+.modal-title {
+  position: relative;
+  width: auto;
+  height: auto;
+  float: left;
+  font-weight: 500;
+  font-size: 32px;
+  color: white;
+  line-height: 60px; }
+
+.modal-background-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: right; }
+  .modal-background-decoration img {
+    width: auto;
+    height: 100%; }
+
+.modal-body-box {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  overflow: hidden; }
+
+.modal-body-left {
+  position: relative;
+  vertical-align: middle; }
+
+.modal-cell-left-bg {
+  position: relative;
+  padding: 20px;
+  padding-left: 40px;
+  /* overlap 20px */
+  text-align: left;
+  background: rgba(0, 0, 0, 0.3); }
+
+.modal-body-right {
+  position: relative;
+  width: 200px;
+  vertical-align: middle;
+  white-space: normal; }
+  .modal-body-right li {
+    background: rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 2px;
+    margin-bottom: 2px; }
+    .modal-body-right li:last-child {
+      margin-bottom: 0; }
+
+.modal-text-body {
+  margin-top: 5px;
+  margin-bottom: 20px; }
+  .modal-text-body:last-child {
+    margin-bottom: 0; }
+
+.modal-table-container {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.modal-table-mover {
+  position: absolute;
+  left: 280px;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.modal-left-image {
+  position: relative;
+  width: 300px; }
+
+.modal-image-table {
+  position: relative;
+  width: 300px;
+  height: 100%; }
+
+.modal-image-table-holder {
+  position: absolute;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  top: 0; }
+
+.modal-image-mover {
+  vertical-align: middle; }
