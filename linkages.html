@@ -3,16 +3,22 @@
 <head>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <style>
-    body{ background-color: white; text-align: center;}
+    body{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500; background-color: white; text-align: center;}
     #canvas{border:5px solid DarkGrey; background: LightGrey}
 </style>
 </head>
 <body onload="handleUpdate(0)">
     <canvas id="canvas" width=500 height=500></canvas>
+    <p>Head Angle (Degrees):
     <form oninput="amount.value=rangeInput.value; handleUpdate(rangeInput.value)">
         <input type="range" id="rangeInput" name="rangeInput" value="0" min="0" max="60">
         <output name="amount" for="rangeInput">0</output>
     </form>
+    </p>
 </body>
 
 <script>
