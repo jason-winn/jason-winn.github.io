@@ -77,7 +77,13 @@ function drawAll(headAngle){
     for(var i = 0; i < numberOfVertebrae; i++) {    
         var value = lowerValues[i] + (upperValues[i] - lowerValues[i]) * correctedHeadAngle / headAngleRange;
         var tempCurrentPoint = drawLine(currentPoint, value, vertebraeLength, i);
+        
         drawNode(currentPoint, 5);
+        
+        ctx.font = "normal 14px Verdana";
+		ctx.fillStyle = "#000000";
+		ctx.fillText("C"+(i+1).toString(), currentPoint.x + 15, currentPoint.y);
+        
         currentPoint = tempCurrentPoint;
     }
     
