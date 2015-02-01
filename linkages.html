@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<style>
+    body{ background-color: white; text-align: center;}
+    #canvas{border:5px solid DarkGrey; background: LightGrey}
+</style>
+</head>
+<body onload="handleUpdate(0)">
+    <canvas id="canvas" width=500 height=500></canvas>
+    <form oninput="amount.value=rangeInput.value; handleUpdate(rangeInput.value)">
+        <input type="range" id="rangeInput" name="rangeInput" value="0" min="0" max="60">
+        <output name="amount" for="rangeInput">0</output>
+    </form>
+</body>
+
+<script>
+
+// get references to the canvas and its context
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+var $canvas=$("#canvas");
+
+// get the canvas position on the page
+// used to get mouse position
+var canvasOffset=$canvas.offset();
+var offsetX=canvasOffset.left;
+var offsetY=canvasOffset.top;
+var scrollX=$canvas.scrollLeft();
+var scrollY=$canvas.scrollTop();
+ctx.lineWidth = 3;
+
+
+var values = {
+	'0' : [-7.6, 20.3, 24.6, 24.6, 23.2, 22.4, 26.6],
+	'30' : [22.8, 43.6, 44.5, 39.8, 32.9, 28.3, 31.1],
+	'60' : [53.3, 73.6, 72, 65.1, 54.4, 47.1, 41.7]
+};
+
+var numberOfVertebrae = 7;
+var vertebraeLength = 30;
+var headRadius = 300;
+
+var currentPoint;
+var currentAngle = 0;
+
+// the html radio buttons indicating what action to do upon mousedown
+var $create=$("#rCreate")[0];
+var $select=$("#rSelect")[0];
+var $move=$("#rMove")[0];
+
+// draw all circles[]
+function drawAll(headAngle){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    
+    currentPoint = {x: 50, y: 500};
+    
+    // This draws T1
+    currentPoint = drawLine(currentPoint, 0, 50, 1);
+    
+	var lowerValues;
+	var upperValues;
+	var headAngleRange = 30;
+	var correctedHeadAngle = headAngle;
+	
+	if(headAngle <= headAngleRange) {
+		lowerValues = values['0'];
+		upperValues = values['30'];
+	} else if(headAngle > headAngleRange && headAngle <= 2*headAngleRange) {
+		lowerValues = values['30'];
+		upperValues = values['60'];
+		correctedHeadAngle -= headAngleRange;
+	}
+    
+    // This draws the vertebrae
+    for(var i = 0; i < numberOfVertebrae; i++) {    
+        var value = lowerValues[i] + (upperValues[i] - lowerValues[i]) * correctedHeadAngle / headAngleRange;
+        var tempCurrentPoint = drawLine(currentPoint, value, vertebraeLength, i);
+        drawNode(currentPoint, 5);
+        currentPoint = tempCurrentPoint;
+    }
+    
+    // This draws the head
+    var radAngle = currentAngle * Math.PI / 180;
+	drawNode({x:currentPoint.x + headRadius * Math.sin(radAngle), y:currentPoint.y - headRadius * Math.cos(radAngle)}, headRadius);
+}
+
+function drawLine(fromPoint, angle, length, vertebraeIndex) {
+	currentAngle = angle;
+	var radAngle = angle * Math.PI / 180;
+	var toPoint = {x:fromPoint.x + length * Math.sin(radAngle), y:fromPoint.y - length * Math.cos(radAngle)};
+    ctx.beginPath();
+	ctx.moveTo(fromPoint.x, fromPoint.y);
+	ctx.lineTo(toPoint.x, toPoint.y);
+	ctx.strokeStyle = vertebraeIndex % 2 ? "#FF0000" : "#ffe360";
+	ctx.stroke();
+	return toPoint;
+}
+
+function drawNode(point, radius) {
+	ctx.beginPath();
+	ctx.arc(point.x, point.y, radius, 0, Math.PI*2, true); 
+	ctx.closePath();
+	ctx.fill();
+}
+
+// return a random color
+function randomColor(){ 
+    return('#'+Math.floor(Math.random()*16777215).toString(16));
+}
+
+
+function handleUpdate(headAngle) {
+  // redraw all
+  drawAll(headAngle);
+}
+    
+</script>
+</html>
