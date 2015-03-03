@@ -48,7 +48,7 @@ var values = {
 
 var numberOfVertebrae = 7;
 var vertebraeLength = 25;
-var headRadius = 30;
+var headRadius = 50;
 
 var currentPoint;
 var currentAngle = 0;
@@ -70,10 +70,10 @@ function rotateAndPaintImage ( context, image, angleInRad , positionX, positionY
 function drawAll(headAngle){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     
-    currentPoint = {x: 100, y: 400};
+    currentPoint = {x: 100, y: 450};
     
     // This draws T1
-    currentPoint = drawLine(currentPoint, 0, vertebraeLength, 1, false);
+    currentPoint = drawLine(currentPoint, 0, 40, 1, false);
     
 	var lowerValues;
 	var upperValues;
@@ -110,7 +110,7 @@ function drawAll(headAngle){
     
     // This draws the head
     var radAngle = currentAngle * Math.PI / 180;
-    var point = {x:currentPoint.x + 60 * Math.cos(radAngle) - 10 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 60 * Math.sin(radAngle) + 10 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)};
+    var point = {x:currentPoint.x + 90 * Math.cos(radAngle) - 10 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 90 * Math.sin(radAngle) + 10 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)};
     
 /* 	drawNode({x:currentPoint.x + 100 * Math.cos(radAngle) - 40 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 100 * Math.sin(radAngle) + 40 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)}, headRadius); */
 	
