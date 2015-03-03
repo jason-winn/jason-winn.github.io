@@ -11,7 +11,7 @@
     #canvas{border:5px solid DarkGrey; background: LightGrey}
 </style>
 </head>
-<body onload="handleUpdate(0)">
+<body onload="handleFirstLoad()">
     <canvas id="canvas" width=500 height=500></canvas>
     <p>Head Angle (Degrees):
     <form oninput="amount.value=rangeInput.value; handleUpdate(rangeInput.value)">
@@ -27,6 +27,8 @@
 var canvas=document.getElementById("canvas");
 var ctx=canvas.getContext("2d");
 var $canvas=$("#canvas");
+var imgSprite;
+var imgSprite2;
 
 // get the canvas position on the page
 // used to get mouse position
@@ -39,14 +41,14 @@ ctx.lineWidth = 3;
 
 
 var values = {
-	'0' : [-7.6, 20.3, 24.6, 24.6, 23.2, 22.4, 26.6],
-	'30' : [22.8, 43.6, 44.5, 39.8, 32.9, 28.3, 31.1],
-	'60' : [53.3, 73.6, 72, 65.1, 54.4, 47.1, 41.7]
+	'0' : [26.6, 22.4, 23.2, 24.6, 24.6, 20.3, -7.6],
+	'30' : [31.1, 28.3, 32.9, 39.8, 44.5, 43.6, 22.8],
+	'60' : [41.7, 47.1, 54.4, 65.1, 72, 73.6, 53.3]
 };
 
 var numberOfVertebrae = 7;
-var vertebraeLength = 30;
-var headRadius = 300;
+var vertebraeLength = 25;
+var headRadius = 30;
 
 var currentPoint;
 var currentAngle = 0;
@@ -56,14 +58,22 @@ var $create=$("#rCreate")[0];
 var $select=$("#rSelect")[0];
 var $move=$("#rMove")[0];
 
+function rotateAndPaintImage ( context, image, angleInRad , positionX, positionY, axisX, axisY ) {
+  context.translate( positionX, positionY );
+  context.rotate( angleInRad );
+  context.drawImage( image, -axisX, -axisY );
+  context.rotate( -angleInRad );
+  context.translate( -positionX, -positionY );
+}
+
 // draw all circles[]
 function drawAll(headAngle){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     
-    currentPoint = {x: 50, y: 500};
+    currentPoint = {x: 100, y: 400};
     
     // This draws T1
-    currentPoint = drawLine(currentPoint, 0, 50, 1);
+    currentPoint = drawLine(currentPoint, 0, vertebraeLength, 1, false);
     
 	var lowerValues;
 	var upperValues;
@@ -78,35 +88,51 @@ function drawAll(headAngle){
 		upperValues = values['60'];
 		correctedHeadAngle -= headAngleRange;
 	}
+	
+	var tempFromPoints = [];
     
     // This draws the vertebrae
     for(var i = 0; i < numberOfVertebrae; i++) {    
         var value = lowerValues[i] + (upperValues[i] - lowerValues[i]) * correctedHeadAngle / headAngleRange;
-        var tempCurrentPoint = drawLine(currentPoint, value, vertebraeLength, i);
+        var tempCurrentPoint = drawLine(currentPoint, value, vertebraeLength, i, true);
         
-        drawNode(currentPoint, 5);
+/*         drawNode(currentPoint, 5); */
         
-        ctx.font = "normal 14px Verdana";
-		ctx.fillStyle = "#000000";
-		ctx.fillText("C"+(i+1).toString(), currentPoint.x + 15, currentPoint.y);
-        
+        tempFromPoints[i] = currentPoint;
         currentPoint = tempCurrentPoint;
+    }
+    
+    for(var i = 0; i < numberOfVertebrae; i++) {
+	    ctx.font = "normal 14px Verdana";
+		ctx.fillStyle = "#000000";
+		ctx.fillText("C"+(numberOfVertebrae - i).toString(), tempFromPoints[i].x, tempFromPoints[i].y);
     }
     
     // This draws the head
     var radAngle = currentAngle * Math.PI / 180;
-	drawNode({x:currentPoint.x + headRadius * Math.sin(radAngle), y:currentPoint.y - headRadius * Math.cos(radAngle)}, headRadius);
+    var point = {x:currentPoint.x + 60 * Math.cos(radAngle) - 10 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 60 * Math.sin(radAngle) + 10 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)};
+    
+/* 	drawNode({x:currentPoint.x + 100 * Math.cos(radAngle) - 40 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 100 * Math.sin(radAngle) + 40 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)}, headRadius); */
+	
+	rotateAndPaintImage ( ctx, imgSprite2, radAngle , point.x, point.y, imgSprite2.width/2, imgSprite2.height/2 );
+	
 }
 
-function drawLine(fromPoint, angle, length, vertebraeIndex) {
+function drawLine(fromPoint, angle, length, vertebraeIndex, isVertebrae) {
 	currentAngle = angle;
 	var radAngle = angle * Math.PI / 180;
 	var toPoint = {x:fromPoint.x + length * Math.sin(radAngle), y:fromPoint.y - length * Math.cos(radAngle)};
-    ctx.beginPath();
-	ctx.moveTo(fromPoint.x, fromPoint.y);
-	ctx.lineTo(toPoint.x, toPoint.y);
-	ctx.strokeStyle = vertebraeIndex % 2 ? "#FF0000" : "#ffe360";
-	ctx.stroke();
+	
+	if(isVertebrae) {
+		rotateAndPaintImage ( ctx, imgSprite, radAngle , (fromPoint.x + toPoint.x)/2, (fromPoint.y + toPoint.y)/2, imgSprite.width/2, imgSprite.height/2 );
+	} else {
+		ctx.beginPath();
+		ctx.moveTo(fromPoint.x, fromPoint.y);
+		ctx.lineTo(toPoint.x, toPoint.y);
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+	
 	return toPoint;
 }
 
@@ -126,6 +152,20 @@ function randomColor(){
 function handleUpdate(headAngle) {
   // redraw all
   drawAll(headAngle);
+}
+
+function handleFirstLoad() {
+  imgSprite = new Image();
+  imgSprite.src = "vertebrae.png";
+  
+  imgSprite2 = new Image();
+  imgSprite2.src = "skull.png";
+  
+  imgSprite.onload = function() {
+  	imgSprite2.onload = function() {
+  		handleUpdate(0);
+  	}
+  }
 }
     
 </script>
