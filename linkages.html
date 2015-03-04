@@ -48,7 +48,7 @@ var values = {
 
 var numberOfVertebrae = 7;
 var vertebraeLength = 25;
-var headRadius = 50;
+var headRadius = 60;
 
 var currentPoint;
 var currentAngle = 0;
@@ -110,7 +110,7 @@ function drawAll(headAngle){
     
     // This draws the head
     var radAngle = currentAngle * Math.PI / 180;
-    var point = {x:currentPoint.x + 90 * Math.cos(radAngle) - 10 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 90 * Math.sin(radAngle) + 10 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)};
+    var point = {x:currentPoint.x + 70 * Math.cos(radAngle) - 10 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 70 * Math.sin(radAngle) + 10 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)};
     
 /* 	drawNode({x:currentPoint.x + 100 * Math.cos(radAngle) - 40 * Math.sin(radAngle) + headRadius * Math.sin(radAngle), y:currentPoint.y + 100 * Math.sin(radAngle) + 40 * Math.cos(radAngle) - headRadius * Math.cos(radAngle)}, headRadius); */
 	
