@@ -19,6 +19,7 @@
         <output name="amount" for="rangeInput">0</output>
     </form>
     </p>
+    <p>Approximate Force On Each Vertebrae: <b><span id="force"></span></b></p>
 </body>
 
 <script>
@@ -143,15 +144,23 @@ function drawNode(point, radius) {
 	ctx.fill();
 }
 
-// return a random color
-function randomColor(){ 
-    return('#'+Math.floor(Math.random()*16777215).toString(16));
-}
-
-
 function handleUpdate(headAngle) {
+  var radAngle = headAngle * Math.PI / 180;
+
   // redraw all
   drawAll(headAngle);
+  
+  // constants
+  var headWeight = 5.5 * 9.8;
+  var xcg = 2.5/100;
+  var ycg = 9.704163302/1000;
+  var xm = 5.0/100;
+  
+  var muscleAngle = radAngle-0.3;
+  
+  var fm = (headWeight*ycg*(Math.sin(radAngle)+xcg))/(xm*Math.cos(muscleAngle)*Math.cos(radAngle));
+  var force = (headWeight + fm * Math.cos(muscleAngle))/Math.cos(radAngle);
+  document.getElementById("force").innerHTML = (Math.round(force * 100) / 100).toString() + " N";
 }
 
 function handleFirstLoad() {
