@@ -19,7 +19,7 @@
         <output name="amount" for="rangeInput">0</output>
     </form>
     </p>
-    <p>Approximate Force On Each Vertebrae: <b><span id="force"></span></b></p>
+    <p>Max Vertebral Force (As a % of Head Weight): <b><span id="force"></span></b></p>
 </body>
 
 <script>
@@ -145,22 +145,19 @@ function drawNode(point, radius) {
 }
 
 function handleUpdate(headAngle) {
-  var radAngle = headAngle * Math.PI / 180;
-
   // redraw all
   drawAll(headAngle);
   
   // constants
-  var headWeight = 5.5 * 9.8;
-  var xcg = 2.5/100;
-  var ycg = 9.704163302/1000;
-  var xm = 5.0/100;
+  var maxForce = [155,171,191,212,236,261,289,325,368,425,502,610,781]; // every 5 degrees
   
-  var muscleAngle = radAngle-0.3;
+  headAngleFloored = 5 * Math.floor(headAngle/5);
+  var interpolatedValue = 310;
+  if(headAngle > 60) {
+	  interpolatedValue = headAngleFloored + (maxForce[(Math.floor(headAngle/5))+1] - maxForce[Math.floor((headAngle/5))])*(headAngle-headAngleFloored)/5;
+  }
   
-  var fm = (headWeight*ycg*(Math.sin(radAngle)+xcg))/(xm*Math.cos(muscleAngle)*Math.cos(radAngle));
-  var force = (headWeight + fm * Math.cos(muscleAngle))/Math.cos(radAngle);
-  document.getElementById("force").innerHTML = (Math.round(force * 100) / 100).toString() + " N";
+  document.getElementById("force").innerHTML = interpolatedValue.toString() + "%";
 }
 
 function handleFirstLoad() {
