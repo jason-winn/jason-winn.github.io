@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"> 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Jason Winn</title>
-		
+
 		<link rel="shortcut icon" href="favicon.ico?v=2" />
-		
+
 		<link rel="stylesheet" href="css/styles.css" type="text/css">
-	
+
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.transit.min.js"></script>
 <!--
 		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.address-1.5.min.js"></script>
 -->
-		
+
 		<script type="text/javascript">
 			function _calculateAge(birthday) { // birthday is a date
 			    var ageDifMs = Date.now() - birthday.getTime();
 			    var ageDate = new Date(ageDifMs); // miliseconds from epoch
 			    var output = Math.abs(ageDate.getUTCFullYear() - 1970);
-			    
+
 			    //sanity check
 			    if(output < 23) output = 23;
 			    // update this in 5 years!
@@ -29,31 +29,31 @@
 			    return output;
 			}
 		</script>
-		
+
 		<script type="text/javascript">
 			$( document ).ready(function() {
 				var $workBacking = $('#work-display-backing');
 				var $workContent = $('#work-display-content');
-			
+
 				$workBacking.on('click',".modal-close", function(e) {
 					e.preventDefault();
 					$workBacking.fadeOut(100);
 				});
-			
+
 				$('.work-preview-box').click(function(e) {
 					e.preventDefault();
-				
+
 					var $target = $(e.delegateTarget);
 					var $refElement = $target.find('.work-piece');
 					var $imgElement = $target.find('.work-image');
-					
+
 					var fileName = $imgElement.attr('id') + '.html';
 /* 					var fileName = 'work-programming-1.html'; */
-					
+
 					var $parentElement = $('#content-backing');
-					
+
 					$workBacking.removeClass();
-					
+
 					if($refElement.hasClass('programming-background')) {
 						$workBacking.addClass('programming-background');
 					} else if($refElement.hasClass('mechanical-background')) {
@@ -61,16 +61,16 @@
 					} else if($refElement.hasClass('design-background')) {
 						$workBacking.addClass('design-background');
 					}
-					
+
 					$workBacking.load(fileName, function(data){
 					    $workBacking.fadeIn(300, function(){
 					    	$workBacking.transition({scale: [1.0, 1.0], x: 0, y: 0 });
 						});
 					});
-					
+
 					var relativeX = $target.offset().left - $parentElement.offset().left;
 					var relativeY = $target.offset().top - $parentElement.offset().top;
-					
+
 					var scaleX = $refElement.width()/$parentElement.width();
 					var scaleY = $refElement.height()/$parentElement.height();
 
@@ -86,44 +86,44 @@
 						'display' : 'none'
 				    });
 				});
-					
+
 				var $gear = $('#header-mechanical-icon'),
 				$gearLine = $('#header-mechanical-addition-line'),
 				$gearSquare = $('#header-mechanical-addition-square'),
-				
+
 				$brush = $('#header-design-icon'),
 				$brushMask = $('#header-design-addition-mask'),
-				
+
 				$scroller = $('#header-programming-addition-scroller'),
 				$text = $('#header-programming-addition-text'),
-				
+
 				bodyHeight = $(document).height();
-				
+
 				$(window).scroll(function () {
 				    $gear.css({
 				        'transform': 'rotate(' + ($(document).scrollTop() / bodyHeight * 600) + 'deg)'
 				    });
-				    
+
 				    $gearLine.css({
 				        'height': 10 + ($(document).scrollTop() / bodyHeight * 30) + 'px'
 				    });
-				    
+
 				    $gearSquare.css({
 				        'top': $gearLine.position().top + $gearLine.height() + 'px'
 				    });
-				    
+
 				    var degrees = ($(document).scrollTop() / bodyHeight * 160);
-				    
+
 				    $brush.css({
 				        'transform': 'rotate(' + degrees + 'deg)'
 				    });
-				    
+
 				    $brushMask.css({
 				    	'left': (-15 + (degrees/160) * 20) + 'px',
 				    	'top': (-10 + (1 - (degrees/160)) * 15) + 'px',
 				        'transform': 'rotate(' + (45 + degrees) + 'deg)'
 				    });
-				    
+
 				    $text.css({
 				        'top': (-50 + $(document).scrollTop() / bodyHeight * -330) + 'px'
 				    });
@@ -138,13 +138,13 @@
             		<div id="logo"></div>
         		</div>
         	</div>
-        	
+
         	<div class="row" id="main-row-chevron">
         		<div class="cell">
         			<div id="chevron"></div>
 				</div>
         	</div>
-			
+
 			<div class="row" id="main-row-footer">
 				<div class="cell">
 		            <ul id="main-three-sections">
@@ -176,7 +176,7 @@
 			            			</div>
 			            		</div>
 				            	<div class="mechanical-background bottom-stripe"></div>
-			            	</div>	            	
+			            	</div>
 			            </li><!--
 						--><li>
 			            	<div class="grey-box">
@@ -197,8 +197,8 @@
 				</div>
             </div>
         </div>
-        
-        
+
+
          <div class="table" id="content-backing">
         	 <div class="row work-row">
 		        <ul>
@@ -237,10 +237,10 @@
 			        </li>
 		        </ul>
 	        </div>
-	        
-	        
-        
-        
+
+
+
+
 	        <div class="row work-row">
 		        <ul>
 			        <li>
@@ -266,11 +266,11 @@
 				        </a>
 			        </li><!--
 						--><li>
-				        <a class="work-preview-box" href="#">
+				        <a class="" href="http://www.theorangecorner.ca" target="_blank">
 				        	<div class="work-piece design-background">
 					        	<div class="work-image" id="work-design-2">
 						        	<div class="work-title">
-						        		<span class="title-text">Newspaper Layout</span>
+						        		<span class="title-text">Orange Corner</span>
 						        	</div>
 					        	</div>
 				        	</div>
@@ -278,10 +278,10 @@
 			        </li>
 		        </ul>
 	        </div>
-	        
-	        
-	        
-	        
+
+
+
+
 	        <div class="row work-row">
 		        <ul>
 			        <li>
@@ -319,17 +319,17 @@
 			        </li>
 		        </ul>
 	        </div>
-	        
-	        
-	        
-	        
-	        
-	        
+
+
+
+
+
+
 	        <div id="work-display-backing"></div>
-	        
+
         </div>
-        
-        
+
+
         <div id="about-backing">
 	        <div id="about-left-block">
 		        <img id="me" src="res/raster/me.png">
@@ -346,18 +346,18 @@
 						--><li class="design-background"></li>
 		        </ul>
 	        </div>
-	        
+
 	        <div id="about-right-block">
 		        <ul>
 		        	<li><a href="res/files/resume.pdf" target="_blank"><div class="black-button">Resumé</div></a></li>
 		        	<li><a href="mailto:jason.winn1@gmail.com" target="_blank"><div class="black-button">Contact</div></a></li>
 		        </ul>
 	        </div>
-	        
+
 	        <div style="clear: both;"></div>
         </div>
-        
+
     <script type="text/javascript" src="js/retina.min.js"></script>
-    
+
     </body>
 </html>
