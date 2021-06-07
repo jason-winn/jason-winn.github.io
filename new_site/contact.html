@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Contact - Jason Winn</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/assets/css/normalize.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+    </head>
+    <body class="page-body-yellow">
+        <div class="container">
+            <header class="header-yellow">
+    <div class="horizontal-layout">
+        <h1 class="page-title expandable">I'm happy to chat.</h1>
+        <h1 class="navigation-title expandable">Navigate to...</h1>
+
+        <a class="hamburger expandable" href="#" role="button">
+            <svg viewBox="0 0 100 100" draggable="false">
+              <rect width="100" height="20"></rect>
+              <rect y="37.5" width="100" height="20"></rect>
+              <rect y="75" width="100" height="20"></rect>
+            </svg>
+        </a>
+
+        <a class="hamburger close expandable" href="#" role="button">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 18 18" style="enable-background:new 0 0 18 18;" xml:space="preserve">
+<polygon points="18,2.55 15.45,0 9,6.45 2.55,0 0,2.55 6.45,9 0,15.45 2.55,18 9,11.55 15.45,18 18,15.45 11.55,9 "/>
+</svg>
+
+        </a>
+
+        <nav>
+            <ul>
+                
+                
+                
+                    <li class="nav-item">
+                        
+                        <a class="nav-link " href="/" role="button">Home</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        
+                        <a class="nav-link " href="/work/" role="button">Work</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        
+                        <a class="nav-link " href="/hobbies/" role="button">Hobbies</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        
+                        <a class="nav-link current" href="/contact/" role="button">Contact</a>
+                    </li>
+                
+            </ul>
+        </nav>
+    </div>
+
+    <hr class="top-separator expandable">
+
+    <div class="supplementary-navigation expandable">
+        <nav>
+            <ul>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" role="button">Home</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/work/" role="button">Work</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hobbies/" role="button">Hobbies</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/" role="button">Contact</a>
+                    </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main-grid">
+	<section>
+		<div class="left">
+			<div class="top-content">
+				<h2>You won’t find this old soul on Twitter or Instagram, but fill out the form on this page and I will respond posthaste!</h2>
+				<div class="supplementary-content">
+					
+				</div>	
+			</div>
+			<div class="bottom-content">
+				<img src="/assets/img/contact.svg" alt="Jason talking to a squirrel with a tin can phone" draggable="false"/>
+			</div>
+		</div>
+
+		<div class="right"><div class="contact">
+    <form id="contact-form" action="https://formspree.io/f/myylwppg" method="POST" name="contact_form">
+        <fieldset class="first-name">
+            <label class="required" for="first-name">First Name</label>
+            <input id="first-name" name="_fname" type="text" required placeholder="Homer"/>
+        </fieldset>
+
+        <fieldset class="last-name">
+            <label class="required" for="last-name">Last Name</label>
+            <input id="last-name" name="_lname" type="text" required placeholder="Simpson"/>
+        </fieldset>
+
+        <fieldset class="email">
+            <label class="required" for="email">Email</label>
+            <input id="email" name="_replyto" type="email" required placeholder="homer.j.simpson@flancrest-enterprises.com"/>
+        </fieldset>
+
+        <fieldset class="message">
+            <label class="required" for="message">Message</label><br>
+            <textarea id="message" name="_message" cols="30" rows="6" placeholder="Oh, they have internet on computers now!"></textarea>
+        </fieldset>
+
+        <fieldset class="trivia">
+            <p><label class="trivia-title" for="trivia">The Simpsons Bonus Question</label></p>
+            <p><label class="trivia-description" for="trivia">If you correctly answer this question, your submission will be prioritized!</label></p>
+            <p><label id="trivia-question" for="trivia"></label></p>
+            <input id="trivia" type="text" placeholder=""/>
+        </fieldset>
+
+        <input id="btn-submit" class="btn-yellow" type="submit" value="Submit">
+    </form>
+
+    <div class="form-feedback" id="form-success"><img src="/assets/img/contact/success.svg" alt="Success" draggable="false"/>Submitted Successfully</div>
+    <div class="form-feedback" id="form-failure"><img src="/assets/img/contact/failure.svg" alt="Failure" draggable="false"/>Error Submitting.&nbsp;<a id="link-resubmit" href="#">Click here</a>&nbsp;to retry.</div>
+</div></div>
+	</section>
+</main>
+            <footer class="footer-yellow">
+    &copy; 2021 Jason Winn
+</footer>
+        </div>
+        
+        <script src="/assets/js/hamburger.js"></script>
+        
+            <script src="/assets/js/md5.js"></script>
+        
+            <script src="/assets/js/contact.js"></script>
+        
+    </body>
+</html>
