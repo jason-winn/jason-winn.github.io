@@ -1,0 +1,64 @@
+// Base Colours
+$beige: #faf5ef;
+$blue: #376a7c;
+$red: #914030;
+$yellow: #a06b1d;
+$light-grey: #f4f4f4;
+$medium-grey: #666666;
+
+// Base Fonts
+$serif: 'Source Serif Pro', serif;
+$sans-serif: 'Source Sans Pro', sans-serif;
+
+$light: 300;
+$normal: 400;
+$semibold: 600;
+
+// Corner Radii
+$medium-corner-radius: 0.5em;
+
+// Screen Size Management
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+$max-content-width: 1920px;
+
+// Small devices
+@mixin sm {
+   @media (max-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (max-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (max-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (max-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+$top-separator-margin: 1.25em;

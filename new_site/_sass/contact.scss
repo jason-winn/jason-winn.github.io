@@ -1,0 +1,131 @@
+.contact {
+  form {
+    display: grid;
+    grid-gap: 1em;
+    justify-items: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "first last"
+                         "email email"
+                         "message message"
+                         "trivia trivia"
+                         "submit submit";
+  }
+
+  .first-name {
+    grid-area: first;
+  }
+
+  .last-name {
+    grid-area: last;
+  }
+
+  .email {
+    grid-area: email;
+  }
+
+  .message {
+    grid-area: message;
+  }
+
+  .trivia {
+    grid-area: trivia;
+
+    .trivia-title {
+      padding: 0;
+      margin: 0;
+    }
+
+    .trivia-description {
+      font-size: 0.85em;
+      color: #666;
+    }
+
+    #trivia-question {
+      font-size: 1em;
+      color: black;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .form-feedback {
+    display: none;
+    align-items: center;
+    padding: 0.75em;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: $medium-corner-radius;
+    font-weight: $semibold;
+    font-size: 1em;
+
+    img {
+      width: 1.5em;
+      height: 1.5em;
+      margin-right: 0.5em;
+    }
+  }
+
+  #form-success {
+    color: #4d9131;
+    background: lighten(#4d9131, 55%);
+  }
+
+  #form-failure {
+    color: #a31f1f;
+    background: lighten(#a31f1f, 55%);
+
+    a {
+      color: #a31f1f;
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 50%;
+      }
+    }
+  }
+
+  input[type=submit] {
+    display: inline-block;
+    grid-area: submit;
+    justify-self: left;
+  }
+
+  .required::after {
+      content: "*";
+      color: red;
+      margin-left: 0.1em;
+  }
+
+  label {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: $yellow;
+    margin-bottom: 0.5em;
+  }
+
+  input[type=text], input[type=email], textarea {
+      width: 100%;
+      line-height: 1em;
+      padding: 1em;
+      border: 2px solid lighten(#997733, 55%);
+      background: lighten(#997733, 55%);
+      border-radius: $medium-corner-radius;
+      box-sizing: border-box;
+      resize: vertical;
+  }
+
+  ::placeholder {
+    color: $yellow;
+    opacity: 0.5;
+  }
+
+  input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    border: 2px solid $yellow;
+  }
+
+  textarea {
+    min-height: 3.5em;
+    max-height: 40em;
+  }
+}

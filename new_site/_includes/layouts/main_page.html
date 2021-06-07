@@ -1,0 +1,17 @@
+<main class="main-grid">
+	<section>
+		<div class="left">
+			<div class="top-content">
+				<h2>{{ layout.subheadline }}</h2>
+				<div class="supplementary-content">
+					{% if page.supplementary_include %}{% include layouts/{{ page.supplementary_include }} %}{% endif %}
+				</div>	
+			</div>
+			<div class="bottom-content">
+				<img src="/assets/img/{{ page.hero_src }}" alt="{{ page.hero_alt }}" draggable="false"/>
+			</div>
+		</div>
+
+		<div class="right">{{ content }}</div>
+	</section>
+</main>

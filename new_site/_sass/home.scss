@@ -1,0 +1,98 @@
+.home-body {
+  background: $beige;
+
+  h1 {
+    margin-bottom: 0.25em;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content;
+    min-height: 100%;
+
+    main {
+      display: flex;
+      align-items: center;
+
+      @include md {
+        flex-direction: column;
+      }
+    }
+
+    nav {
+      @include md {
+        align-self: stretch;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+
+        li {
+          margin-right: 0.5em;
+          min-width: 10em;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          @include lg {
+            min-width: 8em;
+          }
+
+          @include md {
+            width: 100%;
+          }
+
+          a {
+            width: 100%;
+          }
+        }
+
+        @include md {
+          flex-direction: column;
+
+          li {
+            margin-right: 0;
+            margin-bottom: 0.5em;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    figure {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      background: url(/assets/img/hello.svg) no-repeat;
+      background-position: center right 15%;
+      background-size: contain;
+      min-width: 200px;
+      min-height: 300px;
+      height: 75%;
+      margin-left: 2em;
+
+      @include md {
+        margin-left: 0;
+        margin-top: 2em;
+        flex: 1;
+        background-position: center;
+        min-width: 200px;
+        min-height: 400px;
+        width: 75%;
+        height: auto;
+      }
+    }
+
+    img {
+      height: 0;
+    }
+  }
+}

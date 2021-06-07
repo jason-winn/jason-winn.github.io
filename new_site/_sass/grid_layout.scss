@@ -1,0 +1,12 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+	align-items: start;
+	grid-gap: 1.25em;
+	// --gap: 1.25em;
+ //  	margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+
+	// > * {
+	// 	margin: var(--gap) 0 0 var(--gap);
+	// }
+}

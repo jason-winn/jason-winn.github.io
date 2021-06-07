@@ -1,0 +1,12 @@
+---
+layout: work_intermediate
+---
+
+<ul class="grid">
+{% assign sorted = site.work_items | sort: 'start_date' | reverse %}
+{% for line_item in sorted %}
+    <li class="item-blue">
+        {% include layouts/line_item.html content=line_item %}
+    </li>
+{% endfor %}
+</ul>

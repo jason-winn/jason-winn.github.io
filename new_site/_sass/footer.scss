@@ -1,0 +1,15 @@
+@mixin footer($bg) {
+	color: $bg;
+}
+
+.footer-blue {
+  @include footer($blue);
+}
+
+.footer-red {
+  @include footer($red);
+}
+
+.footer-yellow {
+  @include footer($yellow);
+}

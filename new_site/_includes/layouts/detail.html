@@ -1,0 +1,33 @@
+<main class="{{ include.main_class }}">
+	<div class="banner-container">
+		<div class="banner">
+			<div class="logo"><img src="/assets/img{{ page.image_src }}" draggable="false"></div>
+			<div class="content">
+				<h3>{{ page.headline }}</h3>
+				<p>{{ page.subheadline }}</p>
+
+				<ul>
+					{% for button in page.buttons %}
+		        <li>
+		          <a class="button" href="{{ button.url }}" target="_blank" role="button">{{ button.title }}</a>
+		        </li>
+		      {% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<ul class="detail-grid">
+		{% for detail_item in page.detail_items %}
+      <li>
+      	<div class="detail-item">
+        	<div class="logo"><img src="/assets/img{{ detail_item.image_src }}" draggable="false"></div>
+						<div class="title">{{ detail_item.title }}</div>
+						{{ detail_item.description | markdownify }}
+				</div>
+      </li>
+    {% endfor %}
+	</ul>
+</main>
