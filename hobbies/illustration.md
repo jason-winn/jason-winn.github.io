@@ -8,9 +8,9 @@ buttons:
   - title: "View Illustrations"
     url: "https://photos.app.goo.gl/BUHYx5Rh4pedZjev7"
 detail_items:
-  - title: "Greeting Cards"
+  - title: "Greeting Cards & Prints"
     description: |
-      I have way too much fun drawing personified, overly-sentimental vegetables.
+      I enjoy drawing quirky, overly-sentimental characters. Occasionally, 
 
       Drawing greeting cards has been a great way to change gears away from engineering now and then.
     image_src: "/hobbies/illustration/greeting.svg"
