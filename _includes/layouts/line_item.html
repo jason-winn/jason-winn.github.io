@@ -1,0 +1,29 @@
+<article>
+  {% if line_item.more_path %}<a href="{{ line_item.more_path | relative_url }}" role="button">{% endif %}
+  <figure>
+    <div class="logo-background">
+      <img src="{{ line_item.image_src | prepend: '/assets/img/' | relative_url }}" alt="{{ line_item.title }}" draggable="false"/>
+    </div>
+    {% if line_item.more_path %}
+    <div class="read-more-button">Read More</div>
+    {% endif %}
+  </figure>
+  {% if line_item.more_path %}</a>{% endif %}
+
+  <h4>{{ line_item.title }}</h4>
+  <p class="subtitle">
+    {{ line_item.subtitle }}
+    {% if line_item.start_date and line_item.end_date %}
+      <br>
+      {{ line_item.start_date | date: "%b %Y" }}
+      -
+      {% if line_item.end_date == 'now' %}
+        present
+      {% else %}
+        {{ line_item.end_date | date: "%b %Y" }}
+      {% endif %}
+    {% endif %}
+  </p>
+  <br>
+  <p>{{ line_item.description }}</p>
+</article>

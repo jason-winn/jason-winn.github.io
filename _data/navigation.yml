@@ -1,0 +1,11 @@
+- title: Home
+  path: /
+- title: Work
+  path: /work/
+  color: btn-blue
+- title: Hobbies
+  path: /hobbies/
+  color: btn-red
+- title: Contact
+  path: /contact/
+  color: btn-yellow

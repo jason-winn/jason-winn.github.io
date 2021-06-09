@@ -1,0 +1,12 @@
+---
+layout: hobbies_intermediate
+---
+
+<ul class="grid">
+{% assign sorted = site.hobby_items | sort: 'priority' %}
+{% for line_item in sorted %}
+    <li class="item-red">
+        {% include layouts/line_item.html content=line_item %}
+    </li>
+{% endfor %}
+</ul>

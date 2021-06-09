@@ -1,0 +1,156 @@
+@mixin detail($bg) {
+	h2 {
+		color: $bg;
+	}
+
+	hr {
+		background-color: $bg;
+	}
+
+	.detail-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+		@include xl {
+			grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+		}
+		@include md {
+			grid-template-columns: 1fr;
+		}
+   	grid-row-gap: 4em;
+   	grid-column-gap: 6em;
+		align-items: start;
+		justify-content: center;
+		margin-top: 4em;
+
+		li {
+			width: 100%;
+			@include xl {
+				width: 100%;
+			}
+			@include md {
+				width: 100%;
+			}
+			display: block;
+			align-self: flex-start;
+
+			.detail-item {
+			
+				.logo {
+					text-align: center;
+					height: 10em;
+
+					@include md {
+						height: 25em;
+					}
+
+					img {
+						display: block;
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.title {
+					font-family: $sans-serif;
+				  font-weight: 600;
+				  font-size: 1.25rem;
+				  align-self: center;
+				  margin-top: 1em;
+				  margin-bottom: 1em;
+				  text-align: center;
+				}
+
+				p {
+					font-family: $sans-serif;
+			  	font-weight: 400;
+			  	font-size: 1rem;
+			  	line-height: 1.25rem;
+			  	color: #666;
+			  	margin-bottom: 1rem;
+
+			  	&:last-child {
+			  		margin-bottom: 0;
+			  	}
+
+				}
+			}
+		}
+	}
+
+	.banner-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		background: $beige;
+		box-sizing: border-box;
+		padding: 2em;
+		border-radius: $medium-corner-radius;
+	}
+
+	.banner {
+		display: flex;
+		@include md {
+			flex-direction: column;
+		}
+		align-items: center;
+
+		ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			--gap: 0.5em;
+		  	margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+
+			> * {
+				margin: var(--gap) 0 0 var(--gap);
+			}
+		}
+
+		img {
+			width: 8em;
+			height: auto;
+			max-height: 8em;
+			@include md {
+				width: 100%;
+				max-height: 20em;
+			}
+		}
+
+		.logo {
+			margin-right: 2.5em;
+			@include md {
+				width: 100%;
+				margin-right: 0;
+				margin-bottom: 2em;
+			}
+			flex-shrink: 0;
+		}
+
+		.content {
+			flex-grow: 1;
+			flex-basis: auto;
+		}
+
+		p {
+			font-family: $sans-serif;
+	  	font-weight: 400;
+	  	font-size: 1.1rem;
+	  	line-height: 1.5rem;
+	  	margin-top: 0.5em;
+	  	margin-bottom: 1em;
+	  	color: #666;
+		}
+
+		.button {
+			@include button(#333);
+		}
+	}
+}
+
+.detail-main-blue {
+  @include detail($blue);
+}
+
+.detail-main-red {
+  @include detail($red);
+}

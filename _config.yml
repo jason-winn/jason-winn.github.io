@@ -1,0 +1,14 @@
+title: "Jason Winn - Software Engineer"
+description: >-
+  The personal website of Jason Winn, a Software Engineer living in Vancouver, BC, Canada. Explore my work, hobbies, and get in touch!
+baseurl: ""
+url: "jasonwinn.ca"
+collections:
+  - work_items
+  - hobby_items
+defaults:
+- scope:
+    path: "assets/img"
+  values:
+    image: true
+permalink: pretty

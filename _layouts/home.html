@@ -1,0 +1,31 @@
+---
+layout: default
+body_class: home-body
+---
+
+<main>
+    <div class="text-container">
+            <h1>{{ page.headline }}</h1>
+            <h2>{{ page.subheadline }}</h2>
+
+            <hr>
+
+            <nav class role = "navigation">
+                <ul>
+                    {% assign url = page.url | remove:'.html' | remove:'/' | downcase %}
+                    {% for item in site.data.navigation %}
+                        {% assign path = item.path | remove:'/' | downcase %}
+                        {% if url == path %}
+                        {% else %}
+                            <li>
+                              <a class="{{ item.color }}" href="{{ item.path | relative_url }}" role="button">{{ item.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    <figure>
+        <img src="{{ '/assets/img/hello.svg' | relative_url }}" alt="Jason waving hello" draggable="false"/>
+    </figure>
+</main>
