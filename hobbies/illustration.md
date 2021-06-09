@@ -10,14 +10,10 @@ buttons:
 detail_items:
   - title: "Greeting Cards & Prints"
     description: |
-      I enjoy drawing quirky, overly-sentimental characters. Occasionally, 
-
-      Drawing greeting cards has been a great way to change gears away from engineering now and then.
+      I enjoy drawing quirky, overly-sentimental characters. Drawing greeting cards has been a great way to change gears away from engineering every now and then.
     image_src: "/hobbies/illustration/greeting.svg"
   - title: "Layout & Design"
     description: |
-      Starting with school newspaper layout and moving on to design for commercial brands, I've always enjoyed minimalist design.
-
-      Apple in the early 2000s clearly had a big influence!
+      Starting with school newspaper layout and moving on to design for commercial brands, I've always enjoyed minimalist design. Apple in the early 2000s clearly had a big influence!
     image_src: "/hobbies/illustration/newspaper.svg"
 ---
