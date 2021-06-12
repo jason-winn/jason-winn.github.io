@@ -12,6 +12,3 @@ defaults:
   values:
     image: true
 permalink: pretty
-exclude:
-  - first_site
-  - second_site
