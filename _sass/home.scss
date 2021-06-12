@@ -1,8 +1,12 @@
 .home-body {
-  background: $beige;
+  background: white;
 
   h1 {
-    margin-bottom: 0.25em;
+    margin-bottom: 0.15em;
+  }
+
+  h2 {
+    color: $dark-grey;
   }
   
   .container {

@@ -1,6 +1,6 @@
 @mixin header($bg) {
 	hr {
-		background-color: $bg;
+		background-color: black;
 	}
 
 	.top-separator.expanded {

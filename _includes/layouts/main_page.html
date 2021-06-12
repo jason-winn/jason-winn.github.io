@@ -2,7 +2,7 @@
 	<section>
 		<div class="left">
 			<div class="top-content">
-				<h2>{{ layout.subheadline }}</h2>
+				<h2>{{ layout.subheadline | markdownify | remove: '<p>' | remove: '</p>' }}</h2>
 				<div class="supplementary-content">
 					{% if page.supplementary_include %}{% include layouts/{{ page.supplementary_include }} %}{% endif %}
 				</div>	

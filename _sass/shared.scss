@@ -39,10 +39,24 @@ h1 {
 
 h2 {
   font-family: $sans-serif;
-  font-weight: 300;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5em;
   margin: 0;
+
+  a {
+    color: black;
+    text-decoration: underline;
+
+    &:hover {
+      color: $medium-grey;
+    }
+
+    &:focus {
+      outline: 1px dotted #212121;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+  }
 }
 
 h3 {
