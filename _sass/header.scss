@@ -3,8 +3,10 @@
 		background-color: black;
 	}
 
-	.top-separator.expanded {
-		margin-bottom: 0;
+	@include md {
+			.top-separator.expanded {
+				margin-bottom: 0;
+			}
 	}
 
 	.supplementary-navigation {
@@ -33,7 +35,7 @@
 							width: 100%;
 
 							a {
-								border-bottom: 1px solid $bg;
+								border-bottom: 1px solid black;
 								color: $bg;
 								text-align: center;
 	  						font-weight: $normal;
@@ -75,17 +77,21 @@
 		    color: $bg;
 		    white-space: nowrap;
 
+		    &.navigation-title {
+		    	display: none;
+		    }
+
 	      @include md {
 					white-space: normal;
+
+					&.page-title.expanded {
+			    	display: none;
+			    }
+
+			    &.navigation-title.expanded {
+			    	display: block;
+			    }
 	      }
-
-		    &.page-title.expanded {
-		    	display: none;
-		    }
-
-		    &.navigation-title:not(.expanded) {
-		    	display: none;
-		    }
 		}
 
 		.hamburger {
