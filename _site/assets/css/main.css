@@ -138,9 +138,9 @@ footer {
     outline: 5px auto -webkit-focus-ring-color; }
 
 .btn-yellow {
-  color: #bc7d0d;
+  color: #aa6900;
   background: none;
-  border: 2px solid #bc7d0d;
+  border: 2px solid #aa6900;
   border-radius: 0.5em;
   padding: 0.75em 1.5em;
   box-sizing: border-box;
@@ -154,11 +154,11 @@ footer {
       font-size: 1.25em; } }
   @media (hover: hover) {
     .btn-yellow:hover {
-      background: #bc7d0d;
+      background: #aa6900;
       color: white; } }
   .btn-yellow:active {
-    background: #5d3e06;
-    border: 2px solid #5d3e06; }
+    background: #442a00;
+    border: 2px solid #442a00; }
   .btn-yellow:focus {
     outline: 1px dotted #212121;
     outline: 5px auto -webkit-focus-ring-color; }
@@ -478,7 +478,7 @@ footer {
             width: 100%; }
             .header-yellow .supplementary-navigation.expanded nav ul li a {
               border-bottom: 1px solid black;
-              color: #bc7d0d;
+              color: #aa6900;
               text-align: center;
               font-weight: 400;
               font-size: 1.25rem;
@@ -491,11 +491,11 @@ footer {
           @media (max-width: 768px) and (hover: hover) {
             .header-yellow .supplementary-navigation.expanded nav ul li a:hover, .header-yellow .supplementary-navigation.expanded nav ul li a:focus {
               color: white;
-              background: #bc7d0d; } }
+              background: #aa6900; } }
   @media (max-width: 768px) {
               .header-yellow .supplementary-navigation.expanded nav ul li a:active {
                 color: white;
-                background: #5d3e06; } }
+                background: #442a00; } }
 .header-yellow .horizontal-layout {
   display: flex;
   flex-direction: row;
@@ -503,7 +503,7 @@ footer {
   align-items: center; }
   .header-yellow .horizontal-layout h1 {
     margin-right: 1em;
-    color: #bc7d0d;
+    color: #aa6900;
     white-space: nowrap; }
     .header-yellow .horizontal-layout h1.navigation-title {
       display: none; }
@@ -517,7 +517,7 @@ footer {
   .header-yellow .horizontal-layout .hamburger {
     width: 1.25em;
     height: 1.25em;
-    fill: #bc7d0d;
+    fill: #aa6900;
     display: none; }
     @media (max-width: 768px) {
       .header-yellow .horizontal-layout .hamburger:not(.expanded):not(.close) {
@@ -529,9 +529,9 @@ footer {
       height: auto; }
     @media (hover: hover) {
       .header-yellow .horizontal-layout .hamburger:hover, .header-yellow .horizontal-layout .hamburger:focus {
-        fill: #5d3e06; } }
+        fill: #442a00; } }
     .header-yellow .horizontal-layout .hamburger:active {
-      fill: #5d3e06; }
+      fill: #442a00; }
   @media (max-width: 768px) {
     .header-yellow .horizontal-layout nav {
       display: none; } }
@@ -547,16 +547,16 @@ footer {
       .header-yellow .horizontal-layout nav ul li:last-child {
         margin-right: 0; }
     .header-yellow .horizontal-layout nav ul a {
-      color: #bc7d0d;
+      color: #aa6900;
       text-align: center;
       font-weight: 400;
       font-size: 1.5rem;
       font-family: "Source Serif Pro", serif; }
       @media (hover: hover) {
         .header-yellow .horizontal-layout nav ul a:hover {
-          color: #5d3e06; } }
+          color: #442a00; } }
       .header-yellow .horizontal-layout nav ul a:focus {
-        color: #5d3e06; }
+        color: #442a00; }
       .header-yellow .horizontal-layout nav ul a.current {
         text-decoration: underline; }
 
@@ -567,7 +567,7 @@ footer {
   color: #84231f; }
 
 .footer-yellow {
-  color: #bc7d0d; }
+  color: #aa6900; }
 
 .page-body-blue .container {
   grid-template-columns: 1fr;
@@ -710,7 +710,7 @@ footer {
       height: 10em; }
       @media (max-width: 768px) {
         .detail-main-blue .detail-grid li .detail-item .logo {
-          height: 25em; } }
+          height: 15em; } }
       .detail-main-blue .detail-grid li .detail-item .logo img {
         display: block;
         width: 100%;
@@ -840,7 +840,7 @@ footer {
       height: 10em; }
       @media (max-width: 768px) {
         .detail-main-red .detail-grid li .detail-item .logo {
-          height: 25em; } }
+          height: 15em; } }
       .detail-main-red .detail-grid li .detail-item .logo img {
         display: block;
         width: 100%;
@@ -1117,7 +1117,7 @@ footer {
   color: #666;
   opacity: 0.5; }
 .contact input[type=text]:focus, .contact input[type=email]:focus, .contact textarea:focus {
-  border: 2px solid #bc7d0d; }
+  border: 2px solid #aa6900; }
 .contact textarea {
   min-height: 3.5em;
   max-height: 40em; }
