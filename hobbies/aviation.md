@@ -12,7 +12,7 @@ buttons:
 detail_items:
   - title: "Toronto Flying"
     description: |
-      After years of right-seat flights out of Buttonville (CYKZ), I trained and got my license at Toronto Island Airport (CYTZ) in 2012.
+      After years of passenger flights out of Buttonville (CYKZ), I trained and got my license at Toronto Island Airport (CYTZ) in 2012.
 
       My favourite Toronto flights are those that are out over cottage country.
     image_src: "/hobbies/aviation/toronto.svg"
@@ -20,6 +20,6 @@ detail_items:
     description: |
       When I moved to Vancouver one of the first things I did was to get up flying. I fly out of Boundary Bay Airport (CZBB).
 
-      My favourite spots to take passengers include: Widgeon Lake, Qualicum Beach (CAT4), and Squamish (CYSE). There are many other places I'm hoping to check out soon!
+      My favourite spots to take passengers are Widgeon Lake and Qualicum Beach (CAT4). There are many other places I'm hoping to check out soon!
     image_src: "/hobbies/aviation/vancouver.svg"
 ---
