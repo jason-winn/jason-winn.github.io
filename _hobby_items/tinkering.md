@@ -2,7 +2,8 @@
 title: "Hardware Tinkering"
 image_src: /hobbies/tinkering.svg
 subtitle: "Mechanical & electrical projects"
-description: "I will assuredly enjoy any physics-based project with real-world applications."
-more_path: /hobbies/tinkering/
+more_title: "View Photos"
+more_path: "https://photos.app.goo.gl/uoqqoPbX4jb3oaQEA"
+is_external: true
 priority: 3
 ---

@@ -13,8 +13,6 @@ detail_items:
   - title: "Scramble With Friends™"
     description: |
       A rendition of Boggle™ with special 'boosts', and an online social component.
-
-      Turns out: a prefix trie is a pretty nifty data structure!
     image_src: "/work/zynga/scramble.svg"
   - title: "Economy Framework"
     description: |

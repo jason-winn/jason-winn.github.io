@@ -1,11 +1,17 @@
 <article>
-  {% if line_item.more_path %}<a href="{{ line_item.more_path | relative_url }}" role="button">{% endif %}
+  {% if line_item.more_path %}
+    {% if line_item.more_path contains "://" %}
+    <a href="{{ line_item.more_path }}" role="button" target="_blank">
+    {% else %}
+    <a href="{{ line_item.more_path | relative_url }}" role="button">
+    {% endif %}
+  {% endif %}
   <figure>
     <div class="logo-background">
       <img src="{{ line_item.image_src | prepend: '/assets/img/' | relative_url }}" alt="{{ line_item.title }}" draggable="false"/>
     </div>
     {% if line_item.more_path %}
-    <div class="read-more-button">Read More</div>
+    <div class="read-more-button">{{ line_item.more_title | default: "Read More" }}</div>
     {% endif %}
   </figure>
   {% if line_item.more_path %}</a>{% endif %}

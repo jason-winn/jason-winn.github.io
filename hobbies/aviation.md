@@ -3,7 +3,7 @@ layout: hobbies_detail
 image_src: /hobbies/aviation.svg
 title: "Aviation"
 headline: "Aviation"
-subheadline: "Flying is a huge passion of mine. I will stand next to a runway for hours and watch airplanes without a care in the world. I fly dinky airplanes when my wallet permits."
+subheadline: "Flying is a huge passion of mine. I will stand next to a runway for hours and watch airplanes without a care in the world. I fly small airplanes when my wallet permits."
 buttons:
   - title: "View Toronto Flying Photos"
     url: "https://photos.app.goo.gl/K7Gs4UdK7dvHqS6V9"
@@ -14,7 +14,7 @@ detail_items:
     description: |
       After years of passenger flights out of Buttonville (CYKZ), I trained and got my license at Toronto Island Airport (CYTZ) in 2012.
 
-      My favourite Toronto flights are those that are out over cottage country.
+      My favourite Toronto flights are those up north of the city.
     image_src: "/hobbies/aviation/toronto.svg"
   - title: "Vancouver Flying"
     description: |
