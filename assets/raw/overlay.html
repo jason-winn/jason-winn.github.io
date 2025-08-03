@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Overlay with iFrame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    #controls {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 12px;
+      border-radius: 6px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.3s ease;
+    }
+
+    #urlInput {
+      width: 400px;
+      padding: 6px 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #loadBtn {
+      padding: 6px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #0078d4;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #loadBtn:hover {
+      background-color: #005a9e;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: 0;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 5;
+      pointer-events: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="controls">
+    <input type="text" id="urlInput" placeholder="Paste URL here (include https://)" />
+    <button id="loadBtn">Load</button>
+  </div>
+
+  <iframe id="contentFrame"></iframe>
+  <img id="overlay" src="overlay.png" alt="Overlay" />
+
+  <script>
+    const input = document.getElementById('urlInput');
+    const button = document.getElementById('loadBtn');
+    const iframe = document.getElementById('contentFrame');
+    const controls = document.getElementById('controls');
+
+    function loadURL() {
+      let url = input.value.trim();
+      if (!url) return alert('Enter a URL.');
+      if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+      try {
+        new URL(url); // Validate
+      } catch {
+        return alert('Invalid URL.');
+      }
+
+      iframe.src = url;
+      controls.style.opacity = '0';
+      controls.style.pointerEvents = 'none';
+      setTimeout(() => controls.style.display = 'none', 300);
+    }
+
+    button.addEventListener('click', loadURL);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') loadURL();
+    });
+  </script>
+
+</body>
+</html>
