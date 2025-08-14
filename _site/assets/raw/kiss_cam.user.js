@@ -60,11 +60,30 @@
 
   function sendStates() {
     const uuids = getUUIDs();
-    uuids.forEach((u, idx) => {
+    const offList = [];
+    const onList = [];
+    
+    uuids.forEach(u => {
       const shouldBeVisible = (!killSwitch && (u === visibleUUID));
-      const muted = !shouldBeVisible;
-      setTimeout(() => doSend(u, muted), idx * 50);
+      if (shouldBeVisible) {
+        onList.push(u); // active feed(s)
+      } else {
+        offList.push(u); // feeds to turn off first
+      }
     });
+    
+    const delayStep = 100; // increased delay from 50ms to 100ms
+    
+    // Send OFF commands first
+    offList.forEach((u, idx) => {
+      setTimeout(() => doSend(u, true), idx * delayStep);
+    });
+    
+    // Then send ON commands after all OFF commands are out
+    onList.forEach((u, idx) => {
+      setTimeout(() => doSend(u, false), (offList.length + idx) * delayStep);
+    });
+    
     updateIndicator();
   }
 
@@ -163,7 +182,4 @@
 
   container.appendChild(btn2);
   document.body.appendChild(container);
-
-  // Initially hide all cameras
-  sendStates();
 })();
